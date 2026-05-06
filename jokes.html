@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Jokes</title>
+    <style>
+        body { font-family: sans-serif; background: #fff9c4; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; }
+        .box { background: white; padding: 30px; border-radius: 15px; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        #joke-text { font-size: 1.2rem; min-height: 80px; margin-bottom: 20px; }
+        button { padding: 10px 20px; cursor: pointer; border: none; background: #fbc02d; border-radius: 5px; font-weight: bold; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="joke-text">Pappu: Mummy, kya main bhagwan ki tarah dikhta hoon?<br>Mummy: Nahi, kyun?<br>Pappu: Kyun ki main jahan bhi jata hoon sab kehte hain "Hey Bhagwan! Tu phir aa gaya!"</div>
+        
+        <button id="next-btn" onclick="nextJoke()">Next Joke</button>
+        
+        <div id="vibe-section" class="hidden">
+            <p>Ready to relax?</p>
+            <a href="vibes.html" style="text-decoration:none; background:#ff5722; color:white; padding:10px 20px; border-radius:5px; display:inline-block;">Let's vibe a little and become stressless</a>
+        </div>
+    </div>
+
+    <script>
+        const jokes = [
+            "Teacher: 15 phal (fruits) ke naam batao.<br>Pappu: 1 aam, 1 kela aur ek darjan kele!",
+            "Patient: Doctor sahab, neend nahi aati.<br>Doctor: To mobile side mein rakh kar so jao.<br>Patient: Oh! Yeh to socha hi nahi!",
+            "Santa: Yaar, meri biwi ne mujhe ghar se nikal diya.<br>Banta: Kyun?<br>Santa: Usne pucha 'Kya kar rahe ho?' Maine kaha 'Tumhara intezaar'... par main actually video game khel raha tha."
+        ];
+        let currentIdx = 0;
+
+        function nextJoke() {
+            if (currentIdx < jokes.length) {
+                document.getElementById('joke-text').innerHTML = jokes[currentIdx];
+                currentIdx++;
+            } else {
+                document.getElementById('joke-text').innerText = "Hass liye? Ab thoda sukoon dhoondte hain.";
+                document.getElementById('next-btn').classList.add('hidden');
+                document.getElementById('vibe-section').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
